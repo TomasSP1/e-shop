@@ -5,7 +5,7 @@ import './ProductList.css'
 
 const ProductsList = () => {
   return (
-    <div>
+    <div className='productsList-container'>
       <h1 className='ProductsListh1'>E-Shop Products List</h1>
       <Item/>
     </div>

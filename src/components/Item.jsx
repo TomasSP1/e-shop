@@ -1,34 +1,53 @@
+import React, { useState, useEffect } from 'react'
 import products from '../data/data';
 
 import { Heart } from 'react-bootstrap-icons';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { FaStar } from '@fortawesome/free-brands-svg-icons'
+
 import './Item.css'
 
 const Item = () => {
+
+  const [isClicked, setIsClicked] = useState([]);
+
+  const handleClick = (id) => {
+
+    if (!isClicked.includes(id)) {
+      const temporaryVar = [...isClicked, id];
+      setIsClicked(temporaryVar);
+    } else {
+      console.log('Item already clicked!');
+    }
+  }
+
+  useEffect(() => {
+    console.log(isClicked);
+  }, [isClicked]);
+
   return (
-    <div className='row d-flex justify-content-evenly'>
+    <div className='row d-flex justify-content-center'>
       {
         products.map(product => (
-          <div class="col-md-3">
-            <div class="card-sl cardContainer">
-              <div class="card-image">
+          <div className="col-md-3" key={product.id} >
+            <div className="card-sl cardContainer">
+              <div className='card-image'>
                 <img
                   src={product.imageUrl} />
               </div>
               <div>
-                <a class="card-action" href="#"><Heart /></a>
+                <a className="card-action" href="#"><Heart /></a>
               </div>
-              <div class="card-heading">
+              <div className="card-heading">
                 {product.name}
               </div>
-              <div class="card-text card-description">
+              <div className="card-text card-description">
                 {product.description}
               </div>
-              <div class="card-text">
+              <div className="card-text">
                 Price: {product.price}$
               </div>
-              <a href="#" class="card-button">Purchase</a>
+              <a href="#"
+                className="card-button"
+                onClick={() => handleClick(product)}>Purchase</a>
             </div>
           </div>
         ))
