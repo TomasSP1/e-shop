@@ -1,23 +1,25 @@
 import React, { useState, useEffect } from 'react'
+import { useDispatch } from 'react-redux';
 import products from '../data/data';
 
 import { Heart } from 'react-bootstrap-icons';
 
 import './Item.css'
 
-const Item = () => {
 
+
+const Item = () => {
+  const dispatch = useDispatch();
   const [isClicked, setIsClicked] = useState([]);
 
   const handleClick = (id) => {
-
     if (!isClicked.includes(id)) {
-      const temporaryVar = [...isClicked, id];
-      setIsClicked(temporaryVar);
+      setIsClicked([...isClicked, id]);
+      dispatch({ type: 'ADD_TO_CART', payload: id });
     } else {
       console.log('Item already clicked!');
     }
-  }
+  };
 
   useEffect(() => {
     console.log(isClicked);
@@ -54,6 +56,10 @@ const Item = () => {
       }
     </div>
   )
-}
+};
+
+
+
+
 
 export default Item
