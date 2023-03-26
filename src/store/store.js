@@ -1,15 +1,20 @@
 import { createStore } from 'redux';
 
 const initialState = {
-  clickedItems: []
+  cartItems: []
 };
 
 function reducer(state = initialState, action) {
   switch (action.type) {
     case 'ADD_TO_CART':
-      return {
-        clickedItems: [...state.clickedItems, action.payload]
-      };
+      if (state.cartItems.includes(action.payload)) {
+        return state;
+      } else {
+        return {
+          ...state,
+          cartItems: [...state.cartItems, action.payload]
+        };
+      }
     default:
       return state;
   }
