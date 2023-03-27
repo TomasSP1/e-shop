@@ -32,7 +32,7 @@ const Item = () => {
             <div className="card-text card-description">
               {product.description}
             </div>
-            <div className="card-text">Price: {product.price}$</div>
+            <div className="card-text">Price: {product.price} $</div>
             <a href="#" className="card-button" onClick={() => handleClick(product.id)}>
               Purchase
             </a>

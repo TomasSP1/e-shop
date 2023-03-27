@@ -1,0 +1,37 @@
+.cart-h1 {
+    margin: 20px 0 20px 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+
+.table-image-container {
+    width: 160px;
+}
+
+
+.table-img {
+    height: 100px;
+    width: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+
+.table-td-container td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+.delete-icon {
+    color: red;
+}
+
+.font-plus {
+    margin-right: 15px;
+}
+.font-minus {
+    margin-left: 15px;
+}
