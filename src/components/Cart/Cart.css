@@ -1,0 +1,63 @@
+.cart-h1 {
+    margin: 20px 0 20px 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+
+.table-image-container {
+    width: 160px;
+}
+
+
+.table-img {
+    height: 100px;
+    width: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+
+.table-td-container td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+.delete-icon {
+    color: #f95959;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.delete-icon:hover {
+    cursor: pointer;
+    color: #f78080;
+}
+
+
+
+
+.font-plus {
+    color: #313131;
+    margin-left: 15px;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.font-plus:hover {
+    cursor: pointer;
+    color: #5b5b5b;
+} 
+.font-minus {
+    color: #313131;
+    margin-right: 15px;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.font-minus:hover {
+    cursor: pointer;
+    color: #5b5b5b;
+}
