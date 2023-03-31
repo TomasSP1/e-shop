@@ -25,9 +25,6 @@ const Item = () => {
             <div className='card-image'>
               <img src={product.imageUrl} />
             </div>
-            <div>
-              <a className="card-action" href="#"><Heart /></a>
-            </div>
             <div className="card-heading">{product.name}</div>
             <div className="card-text card-description">
               {product.description}
