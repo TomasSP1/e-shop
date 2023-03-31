@@ -1,27 +1,16 @@
-
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
 import Table from 'react-bootstrap/Table';
-
 import {
   BsFillXCircleFill,
   BsFillDashSquareFill,
-  BsPlusSquareFill,
+  BsPlusSquareFill
 } from "react-icons/bs";
-
 
 import './Cart.css'
 
 const Cart = () => {
-
   const cartItems = useSelector(state => state.cartItems);
-  const initialQuantities = cartItems.reduce((quantities, item) => {
-    quantities[item.id] = 1;
-    return quantities;
-  }, {});
-  const [quantities, setQuantities] = useState(initialQuantities);
-
 
   const dispatch = useDispatch();
 
@@ -30,29 +19,17 @@ const Cart = () => {
   };
 
   const handleClickPlus = (item) => {
-    const currentQuantity = quantities[item.id] || 0;
-    if (currentQuantity < item.countInStock) {
-      setQuantities({
-        ...quantities,
-        [item.id]: currentQuantity + 1
-      });
-    }
+    dispatch({ type: 'UPDATE_QUANTITY', payload: { id: item.id, quantity: 1 } });
   };
 
   const handleClickMinus = (item) => {
-    const currentQuantity = quantities[item.id] || 0;
-    if (currentQuantity > 1) {
-      setQuantities({
-        ...quantities,
-        [item.id]: currentQuantity - 1
-      });
-    }
+    dispatch({ type: 'UPDATE_QUANTITY', payload: { id: item.id, quantity: -1 } });
   };
-
 
   return (
     <div>
       <h1 className='cart-h1'>My Cart component</h1>
+      {cartItems.length > 0 ? (
       <div>
         <Table bordered hover>
           <thead>
@@ -76,15 +53,15 @@ const Cart = () => {
                 <td>
                   <div>
                     <i className='font-minus'><BsFillDashSquareFill onClick={() => handleClickMinus(item)} /></i>
-                    <span>{quantities[item.id] || 1}</span>
+                    <span>{item.quantity}</span>
                     <i className='font-plus'><BsPlusSquareFill onClick={() => handleClickPlus(item)} /></i>
                   </div>
                 </td>
-                <td>{item.price} $</td>
+                <td>{item.totalPrice ? item.totalPrice : item.price} $</td>
                 <td>
                   <i
                     className='delete-icon'
-                    onClick={() => handleDelete(item)}>
+                    onClick={() => handleDelete(item.id)}>
                     <BsFillXCircleFill />
                   </i>
                 </td>
@@ -92,9 +69,23 @@ const Cart = () => {
             ))}
           </tbody>
         </Table>
+        <Table bordered hover className='total-table'>
+          <thead>
+            <tr className='table-dark total-table-thead-tr'>
+              <th className='text-center'>{cartItems.length > 0 ? `Total: ${cartItems.reduce((total, item) => total + (item.totalPrice ? item.totalPrice : item.price), 0).toFixed(2)} $` : ''}</th>
+              <th className='text-center th-Pay'>Pay</th>
+              <th className='text-center th-Reset' onClick={() => dispatch({ type: 'RESET_QUANTITIES' })}>Reset</th>
+            </tr>
+          </thead>
+        </Table>
       </div>
+      ) : (
+        <div className='empty-cart-message'>
+          There are no items in your cart.
+        </div>
+      )}
     </div>
   );
 };
 
-export default Cart;
+export default Cart; 

@@ -61,3 +61,13 @@
     cursor: pointer;
     color: #5b5b5b;
 }
+
+.total-table {
+    width: 450px !important;
+    float: right !important;
+}
+
+.th-Pay:hover, .th-Reset:hover {
+    cursor: pointer;
+    background-color: #313131;
+}
