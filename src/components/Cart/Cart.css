@@ -71,3 +71,12 @@
     cursor: pointer;
     background-color: #313131;
 }
+
+.table-hyperlink {
+    text-decoration: none;
+    color: #ffff;
+}
+
+.table-hyperlink:hover {
+    color: #ffff;
+}
