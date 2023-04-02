@@ -1,0 +1,9 @@
+.nav-link {
+    color: #ffff !important;
+    font-weight: 600 !important;
+    font-size: 18px !important;
+}
+
+.navbar-container {
+    height: 15%;
+}

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import products from '../../data/data';
-import { Heart } from 'react-bootstrap-icons';
+
 import './Item.css';
 
 const Item = () => {

@@ -4,7 +4,7 @@ import './Home.css'
 
 const Home = () => {
   return (
-    <Carousel fade>
+    <Carousel fade className='carousel-container'>
       {
         products.map(product => (
           

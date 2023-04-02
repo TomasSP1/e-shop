@@ -38,14 +38,11 @@ function reducer(state = initialState, action) {
           total
         };
       }
-      case 'RESET_QUANTITIES':
-      const updatedCartItems = state.cartItems.map(item =>
-        ({ ...item, quantity: 1, totalPrice: item.price })
-      );
+    case 'RESET_QUANTITIES':
       return {
         ...state,
-        cartItems: updatedCartItems,
-        total: updatedCartItems.reduce((acc, item) => acc + item.totalPrice, 0)
+        cartItems: [],
+        total: 0
       };
     default:
       return state;
