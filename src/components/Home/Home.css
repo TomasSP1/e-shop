@@ -5,8 +5,5 @@
 }
 
 .carousel-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 85vh;
+    margin-top: 45px;
 }
