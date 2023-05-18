@@ -80,3 +80,15 @@
 .table-hyperlink:hover {
     color: #ffff;
 }
+
+@media only screen and (max-width: 400px) {
+    .table-image-container, .image-th {
+      display: none;
+    }
+    .table-quantity {
+        width: 200px;
+    }
+    .total-table {
+        width: 300px !important;
+    }
+  }

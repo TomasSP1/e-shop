@@ -10,8 +10,6 @@ import Container from 'react-bootstrap/Container';
 
 const App = () => {
   return (
-    <Container>
-
       <BrowserRouter>
         <Provider store={store}>
           <Header />
@@ -22,8 +20,6 @@ const App = () => {
           </Routes>
         </Provider>
       </BrowserRouter>
-
-    </Container>
   )
 }
 

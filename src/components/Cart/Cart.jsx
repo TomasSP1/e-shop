@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import Table from 'react-bootstrap/Table';
+import { Container, Table } from 'react-bootstrap';
 import {
   BsFillXCircleFill,
   BsFillDashSquareFill,
@@ -27,6 +27,7 @@ const Cart = () => {
   };
 
   return (
+    <Container>
     <div>
       <h1 className='cart-h1'>My Cart component</h1>
       {cartItems.length > 0 ? (
@@ -35,7 +36,7 @@ const Cart = () => {
             <thead>
               <tr className='table-dark'>
                 <th className='text-center'>#</th>
-                <th></th>
+                <th className='image-th'></th>
                 <th className='text-center'>Name</th>
                 <th className='text-center'>Quantity</th>
                 <th className='text-center'>Price</th>
@@ -49,8 +50,8 @@ const Cart = () => {
                   <td className='table-image-container'>
                     <img src={item.imageUrl} alt={item} className="table-img" />
                   </td>
-                  <td>{item.name}</td>
-                  <td>
+                  <td className='item-name'>{item.name}</td>
+                  <td className='table-quantity'>
                     <div>
                       <i className='font-minus'><BsFillDashSquareFill onClick={() => handleClickMinus(item)} /></i>
                       <span>{item.quantity}</span>
@@ -89,6 +90,7 @@ const Cart = () => {
         </div>
       )}
     </div>
+    </Container>
   );
 };
 
